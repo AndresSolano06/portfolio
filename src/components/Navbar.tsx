@@ -2,37 +2,43 @@ import Link from "next/link";
 
 export default function Navbar() {
   return (
-    <nav className="fixed top-0 left-0 w-full bg-darkBackground bg-opacity-80 backdrop-blur-md p-4 z-50">
-      <div className="container mx-auto flex justify-between items-center">
-        {/* Logo */}
-        <h1 className="text-cyberGreen text-2xl font-bold glow">CyberNature</h1>
+    <nav className="fixed top-0 left-0 w-full bg-darkBackground bg-opacity-70 backdrop-blur-md p-3 z-50 shadow-md">
+      <div className="container mx-auto max-w-screen-lg flex items-center justify-between px-6">
+        
+        {/* Sección Izquierda - Logo y Título */}
+        <div className="flex flex-col items-start">
+          <h1 className="text-cyberGreen text-lg font-bold glow">Andres Solano</h1>
+          <h3 className="text-cyberGreen text-xs font-semibold glow opacity-80">
+            Backend Developer
+          </h3>
+        </div>
 
-        {/* Links */}
-        <ul className="flex space-x-6">
+        {/* Sección Central - Links de Navegación */}
+        <ul className="flex space-x-8 text-sm">
           <li>
-            <Link href="#home" className="text-white hover:text-cyberGreen transition duration-300">
+            <a href="#home" className="text-white hover:text-cyberGreen transition duration-300">
               Inicio
-            </Link>
+            </a>
           </li>
           <li>
-            <Link href="#projects" className="text-white hover:text-cyberGreen transition duration-300">
+            <a href="#projects" className="text-white hover:text-cyberGreen transition duration-300">
               Proyectos
-            </Link>
+            </a>
           </li>
           <li>
-            <Link href="#about" className="text-white hover:text-cyberGreen transition duration-300">
+            <a href="#about" className="text-white hover:text-cyberGreen transition duration-300">
               Sobre Mí
-            </Link>
+            </a>
           </li>
           <li>
-            <Link href="#contact" className="text-white hover:text-cyberGreen transition duration-300">
+            <a href="#contact" className="text-white hover:text-cyberGreen transition duration-300">
               Contacto
-            </Link>
+            </a>
           </li>
         </ul>
 
-        {/* Botón Especial */}
-        <button className="px-4 py-2 bg-cyberGreen text-black rounded-lg shadow-lg hover:shadow-cyberGreen glow transition duration-300">
+        {/* Sección Derecha - Botón de Acción */}
+        <button className="px-4 py-2 bg-cyberGreen text-black rounded-lg shadow-lg hover:shadow-cyberGreen glow transition duration-300 text-xs font-semibold">
           Explorar
         </button>
       </div>
