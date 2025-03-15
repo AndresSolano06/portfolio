@@ -1,15 +1,11 @@
-import Hero from "../components/Hero";
-import AboutMe from "../components/AboutMe";
+import Navbar from "../components/Navbar";
+import MainPage from "../components/MainPage";
 
 export default function Home() {
   return (
     <div>
-      <section id="home">
-        <Hero />
-      </section>
-      <section id="about">
-        <AboutMe />
-      </section>
+      <Navbar /> {/* ✅ Agregamos el navbar aquí */}
+      <MainPage /> {/* ✅ Toda la estructura está en MainPage */}
     </div>
   );
 }
