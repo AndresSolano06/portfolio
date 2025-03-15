@@ -1,10 +1,10 @@
-'use client';
+"use client";
 
-import { useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
 import Particles from "@tsparticles/react";
 import type { ISourceOptions } from "@tsparticles/engine";
-import './mainpage.css';
+import "./mainpage.css";
 
 const particlesOptions: ISourceOptions = {
   background: { color: "transparent" },
@@ -25,54 +25,44 @@ const particlesOptions: ISourceOptions = {
 };
 
 const skills = [
-  { title: "Backend & APIs", description: "Desarrollo de APIs robustas con .NET y SQL Server.", icon: "⚙️" },
-  { title: "Seguridad", description: "Implementación de autenticación biométrica y cifrado.", icon: "🔒" },
-  { title: "Café & Código", description: "Nada como programar con un buen café en mano.", icon: "☕" },
+  { title: "Backend & APIs", description: "Desarrollo de APIs con .NET y SQL Server.", icon: "⚙️" },
+  { title: "Seguridad", description: "Autenticación biométrica y ciberseguridad.", icon: "🔒" },
+  { title: "DevOps & Cloud", description: "Azure, AWS, Docker y Kubernetes.", icon: "☁️" },
+  { title: "Arquitectura de Software", description: "Diseño de sistemas escalables.", icon: "🏛️" },
+  { title: "Control de Versiones", description: "Gestión de código con Git y GitHub.", icon: "🛠️" },
+  { title: "Café & Código", description: "Nada como programar con un buen café.", icon: "☕" },
 ];
 
 export default function MainPage() {
-  useEffect(() => {
-    document.getElementById("home")?.scrollIntoView({ behavior: "smooth" });
-  }, []);
-
   return (
     <motion.div className="main-container">
-      <div className="main-background"></div>
       <Particles id="tsparticles" options={particlesOptions} className="particles" />
 
-      <motion.div className="main-content">
-        <motion.h1 className="main-title" initial={{ opacity: 0, x: -50 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 1 }}>
-          Código, naturaleza y un café ☕🌿💻
-        </motion.h1>
-
-        <motion.p className="main-text" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.2 }}>
+      {/* ✅ Sección Home */}
+      <motion.div id="home" className="main-content">
+        <h1 className="main-title">Código, naturaleza y un café ☕🌿💻</h1>
+        <p className="main-text">
           Desarrollo software con la precisión de un algoritmo y la calma de un bosque.
-        </motion.p>
-
-        <motion.button className="main-button" whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
-          Explorar
-        </motion.button>
+        </p>
+        <button className="main-button">Explorar</button>
       </motion.div>
 
-      <motion.section id="about" className="about-container">
-        <motion.h2 className="about-title" initial={{ opacity: 0, scale: 0.8 }} whileInView={{ opacity: 1, scale: 1 }} transition={{ duration: 1 }}>
-          Sobre Mí
-        </motion.h2>
-
-        <motion.p className="about-text" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.2 }}>
+      {/* ✅ Sección "Sobre Mí" */}
+      <section id="about" className="about-container">
+        <h2 className="about-title">Sobre Mí</h2>
+        <p className="about-text">
           Soy un desarrollador backend con pasión por la tecnología, la naturaleza y un buen café.
-        </motion.p>
-
+        </p>
         <div className="card-container">
           {skills.map((skill, index) => (
-            <motion.div key={index} className="card" whileHover={{ scale: 1.1, boxShadow: "0px 0px 15px rgba(0, 255, 255, 0.6)" }}>
+            <motion.div key={index} className="card">
               <span className="icon">{skill.icon}</span>
               <h3 className="card-title">{skill.title}</h3>
               <p className="card-description">{skill.description}</p>
             </motion.div>
           ))}
         </div>
-      </motion.section>
+      </section>
     </motion.div>
   );
 }
